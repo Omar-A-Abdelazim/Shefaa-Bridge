@@ -168,12 +168,21 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             height: 250,
             width: double.infinity,
             decoration: BoxDecoration(
-                color: Colors.grey.shade50,
-                borderRadius: BorderRadius.circular(20)),
-            child: Center(
-                child: Text(data.image,
-                    style: const TextStyle(
-                        color: Colors.grey, fontWeight: FontWeight.bold))),
+              color: data.color.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset(
+                'assets/${data.image}.png', // هياخد onboarding1.png , onboarding2.png , إلخ
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return const Center(
+                      child: Icon(Icons.image_not_supported,
+                          size: 80, color: Colors.grey));
+                },
+              ),
+            ),
           ),
           const SizedBox(height: 40),
           Text(data.title,

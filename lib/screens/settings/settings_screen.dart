@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pharmacy_app/providers/credits_provider.dart';
+import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -34,7 +36,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         const CircleAvatar(
                           radius: 50,
                           backgroundColor: Colors.grey,
-                          child: Text('Profile', style: TextStyle(color: Colors.white, fontSize: 12)),
+                          child: Text('Profile',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 12)),
                         ),
                         Positioned(
                           bottom: 0,
@@ -73,6 +77,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           size: 18,
                         ),
                       ],
+                    ),
+                    const SizedBox(height: 4),
+                    Consumer<CreditsProvider>(
+                      builder: (context, creditsProvider, child) {
+                        return Text(
+                          'Credits Balance: ${creditsProvider.credits}',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: primaryColor,
+                          ),
+                        );
+                      },
                     ),
                     const SizedBox(height: 4),
                     const Text(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pharmacy_app/providers/credits_provider.dart';
+import 'package:provider/provider.dart';
 
 class AddNewListingScreen extends StatefulWidget {
   const AddNewListingScreen({super.key});
@@ -502,8 +504,15 @@ class _AddNewListingScreenState extends State<AddNewListingScreen> {
               );
               return;
             }
+
+            // Award credits for uploading a listing
+            Provider.of<CreditsProvider>(context, listen: false)
+                .addCredits(150);
+
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Listing submitted for approval')),
+              const SnackBar(
+                  content: Text(
+                      'Listing submitted for approval + 150 credits added!')),
             );
             Navigator.pop(context);
           },

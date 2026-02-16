@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pharmacy_app/Login/Login%20Screen.dart';
 import 'package:pharmacy_app/Login/Signup%20Step%201.dart';
 import 'package:provider/provider.dart';
-
+import 'providers/credits_provider.dart'; // ← أضف ده
 import 'providers/cart_provider.dart';
 import 'screens/onboarding/onboarding_screen.dart';
 import 'screens/main/main_navigation_screen.dart';
@@ -12,6 +12,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => CartProvider()),
+        ChangeNotifierProvider(create: (_) => CreditsProvider()), // ← أضف ده
       ],
       child: const PharmacyApp(),
     ),

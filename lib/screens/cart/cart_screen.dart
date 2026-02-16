@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmacy_app/providers/credits_provider.dart';
 import 'package:provider/provider.dart';
 import '../../providers/cart_provider.dart';
 import '../main/main_navigation_screen.dart';
@@ -57,6 +58,17 @@ class CartScreen extends StatelessWidget {
                     onPressed: () {
                       Provider.of<CartProvider>(context, listen: false)
                           .clearCart();
+
+                      // Award credits for successful purchase
+                      Provider.of<CreditsProvider>(context, listen: false)
+                          .addCredits(100);
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                            content: Text(
+                                'Purchase successful! +100 credits added')),
+                      );
+
                       Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
                             builder: (context) => const MainNavigationScreen()),
