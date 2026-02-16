@@ -254,25 +254,25 @@ class HomeScreen extends StatelessWidget {
         'name': 'Panadol Advance',
         'desc': 'Paracetamol 500mg - Fast Relief',
         'price': '\$12.50',
-        'img': 'assets/images/panadol.png'
+        'img': 'assets/panadol.png'
       },
       {
         'name': 'Amoxicillin',
         'desc': '500mg Capsules - Antibiotic',
         'price': '\$45.00',
-        'img': 'assets/images/amoxicillin.png'
+        'img': 'assets/amoxicillin.png'
       },
       {
-        'name': 'Vitamin C',
+        'name': 'Dolibran',
         'desc': '1000mg Effervescent Tablets',
         'price': '\$15.00',
-        'img': 'assets/images/vit_c.png'
+        'img': 'assets/dolibran.png'
       },
       {
         'name': 'Ibuprofen',
         'desc': '400mg Tablets - Pain Relief',
         'price': '\$8.00',
-        'img': 'assets/images/ibuprofen.png'
+        'img': 'assets/Ibuprofen.png'
       },
     ];
 
